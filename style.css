@@ -1,0 +1,210 @@
+/* || Main heading link */
+
+h1 {
+  text-align: center;
+  border-bottom: 5px solid #000080;
+}
+
+h1 > a {
+  text-decoration: none;
+  color: #0000ee;
+}
+
+h1 > a:hover {
+  color: #dd00dd;
+}
+
+/* || Main menu navigation links/buttons */
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+nav a {
+  width: 50%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 3;
+  color: #000000;
+}
+
+nav a:link,
+nav a:visited {
+  background-color: #87ceeb;
+  color: #000000;
+}
+
+nav a:focus,
+nav a:hover {
+  background: #ffa500;
+}
+
+nav a:active {
+  background: #8b0000;
+  color: #ffffff;
+}
+
+/* || Settings form styles */
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+form label {
+  margin-right: 0.5rem;
+}
+
+/* || Board layout */
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  align-items: center;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  min-width: 25%;
+}
+
+.board-row {
+  display: flex;
+  background-color: #808080;
+}
+
+/* Color the solution row differently */
+.board-row:last-child {
+  background-color: #d2691e;
+}
+.board-row:last-child .small-peg-container {
+  background-color: #d2691e;
+}
+
+/* Change background for current row */
+.current-row {
+  background-color: #6495ed;
+}
+
+/* || Input panel */
+
+.input-panel {
+  display: flex;
+  flex-wrap: wrap;
+  position: sticky;
+  bottom: 20px;
+  justify-content: space-evenly;
+  background-color: #0d1117;
+}
+
+.input-panel .colored-peg-slot {
+  flex: 0;
+  min-width: 60px;
+  background-color: #0d1117;
+}
+
+.input-panel .colored-peg-slot:hover {
+  background-color: #404040;
+}
+
+#check-button {
+  flex: 1 100%;
+  line-height: 3;
+}
+
+/* || Colored peg slots */
+
+.colored-peg-slot {
+  flex: 1;
+  min-width: 75px;
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.colored-peg-slot::after {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #606060;
+  text-align: center;
+  content: "";
+}
+
+.colored-peg-slot[data-color-id]::after {
+  background-color: var(--bg-color);
+  content: var(--bg-image);
+}
+
+/* || Blinker for selected colored peg slot */
+
+.selected-slot::after {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.2;
+  }
+}
+/* || Small peg container and slots */
+
+.small-peg-container {
+  flex: 1;
+  min-width: 75px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr 1fr;
+  background-color: #606060;
+}
+
+.small-peg-slot {
+  position: relative;
+}
+
+.small-peg-slot::after {
+  position: absolute;
+  aspect-ratio: 1;
+  height: 50%;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #505050;
+  content: "";
+}
+
+.small-peg-slot[data-type="dark"]::after {
+  background-color: #000000;
+}
+
+.small-peg-slot[data-type="light"]::after {
+  background-color: #ffffff;
+}
+
+/* || Different sizing settings for small screens */
+
+@media (max-width: 500px) {
+  /* Use more board space */
+  .board {
+    min-width: 80%;
+  }
+  /* Use a smaller minimum size for pegs */
+  .colored-peg-slot {
+    min-width: 40px;
+  }
+  .small-peg-container {
+    min-width: 40px;
+  }
+}
+

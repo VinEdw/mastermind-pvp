@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Player Settings | Mastermind PvP</title>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body>
+    <h1><a href="../index.html">Mastermind PvP</a></h1>
+    <form action="game.html" method="get" autocomplete="off">
+      <div>
+        <label for="colors">Number of Colors</label>
+        <input id="colors" name="colors" type="number" min="2" max="10" value="6" required>
+      </div>
+      <div>
+        <label for="slots">Number of Slots</label>
+        <input id="slots" name="slots" type="number" min="2" max="8" value="4" required>
+      </div>
+      <div>
+        <label for="duplicates">Duplicates</label>
+        <input id="duplicates" name="duplicates" type="checkbox" checked>
+      </div>
+      <div>
+        <label for="guesses">Number of Guesses</label>
+        <input id="guesses" name="guesses" type="number" min="8" max="20" value="10" required>
+      </div>
+      <div>
+        <input type="submit">
+      </div>
+    </form>
+  </body>
+</html>
