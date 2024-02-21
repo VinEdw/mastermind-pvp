@@ -152,12 +152,11 @@ class Game {
     if (previousSlot !== null) {
       previousSlot.classList.remove("selected-slot");
     }
-    if (slot === null) {
-      return;
+    if (slot !== null) {
+      const rowElem = this.board.querySelector(".current-row");
+      slot = ((slot % this.slots) + this.slots) % this.slots;
+      rowElem.children[slot].classList.add("selected-slot");
     }
-    const rowElem = this.board.querySelector(".current-row");
-    slot = ((slot % this.slots) + this.slots) % this.slots;
-    rowElem.children[slot].classList.add("selected-slot");
     this._selectedSlot = slot;
   }
 
